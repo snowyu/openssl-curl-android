@@ -20,6 +20,7 @@ cd curl
 autoreconf -fi
 
 # arm64
+MIN_SDK_VERSION=$A64_MIN_SDK_VERSION
 export TARGET_HOST=aarch64-linux-android
 export ANDROID_ARCH=arm64-v8a
 export AR=$TOOLCHAIN/bin/$TARGET_HOST-ar
@@ -45,6 +46,7 @@ cp -R $PWD/build/$ANDROID_ARCH ../build/curl/
 # arm
 export TARGET_HOST=armv7a-linux-androideabi
 export ANDROID_ARCH=armeabi-v7a
+MIN_SDK_VERSION=$A32_MIN_SDK_VERSION
 
 # for 32-bit ARM, the compiler is prefixed with armv7a-linux-androideabi, but the binutils tools are prefixed with arm-linux-androideabi
 export AR=$TOOLCHAIN/bin/arm-linux-androideabi-ar
@@ -91,6 +93,7 @@ mkdir -p ../build/curl/$ANDROID_ARCH
 cp -R $PWD/build/$ANDROID_ARCH ../build/curl/
 
 # x64
+MIN_SDK_VERSION=$A64_MIN_SDK_VERSION
 export TARGET_HOST=x86_64-linux-android
 export ANDROID_ARCH=x86_64
 export AR=$TOOLCHAIN/bin/$TARGET_HOST-ar

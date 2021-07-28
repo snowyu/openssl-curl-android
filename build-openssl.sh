@@ -18,6 +18,7 @@ cd openssl
 # arm64
 export TARGET_HOST=aarch64-linux-android
 export ANDROID_ARCH=arm64-v8a
+MIN_SDK_VERSION=$A64_MIN_SDK_VERSION
 
 # openssl does not handle api suffix well
 ln -sfn $TOOLCHAIN/bin/$TARGET_HOST$MIN_SDK_VERSION-clang $TOOLCHAIN/bin/$TARGET_HOST-clang
@@ -35,6 +36,7 @@ cp -R $PWD/build/$ANDROID_ARCH ../build/openssl/
 # arm
 export TARGET_HOST=arm-linux-androideabi
 export ANDROID_ARCH=armeabi-v7a
+MIN_SDK_VERSION=$A32_MIN_SDK_VERSION
 
 # for 32-bit ARM, the compiler is prefixed with armv7a-linux-androideabi, but the binutils tools are prefixed with arm-linux-androideabi
 ln -sfn $TOOLCHAIN/bin/armv7a-linux-androideabi$MIN_SDK_VERSION-clang $TOOLCHAIN/bin/$TARGET_HOST-clang
@@ -68,6 +70,7 @@ cp -R $PWD/build/$ANDROID_ARCH ../build/openssl/
 # x64
 export TARGET_HOST=x86_64-linux-android
 export ANDROID_ARCH=x86_64
+MIN_SDK_VERSION=$A64_MIN_SDK_VERSION
 
 ln -sfn $TOOLCHAIN/bin/$TARGET_HOST$MIN_SDK_VERSION-clang $TOOLCHAIN/bin/$TARGET_HOST-clang
 
